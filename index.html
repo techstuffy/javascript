@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MKLINK MANAGER</title>
+	<!-- Stylesheets -->
+    <link rel="stylesheet" href="css\photon.css">
+	<link rel="stylesheet" href="css\mklink.css">
+	
+	  <script type='text/javascript'>
+	  require('./renderer.js');
+	  
+      // In such way we connect ipcRenderer to our page.
+      window.ipcRenderer = require('electron').ipcRenderer;	  
+      // The ipcRenderer module provides a few methods so you can send events from the render process (web page) to the main process. 
+	  //<script src="js/menu.js" charset="utf-8">
+	  
+    </script>
+	
+	
+  </head>
+
+  <body>
+  
+  
+   <div class="window">
+      <!-- .toolbar-header sits at the top of your app -->
+      <header class="toolbar toolbar-header">
+        <h1 class="title">MKLINK MANAGER</h1>
+      </header>
+
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="padded-more">          
+          <p>
+		  
+  
+          </p>
+        </div>
+		
+<div class="pane-group">
+
+
+      <div class="pane-sm sidebar" style="width:100px;">
+    <button id="updateBtn" class="btn btn-large btn-default">Update</button>
+ 		
+	  </div>
+	  
+      <div class="pane">
+	  <div id=mytable> </div>
+	  </div>
+    </div>		
+		
+
+
+
+      </div>
+	  
+	  
+    </div>
+	
+    <!-- All of the Node.js APIs are available in this renderer process. -->	
+	
+	
+	  <script type='text/javascript'>
+	  
+		  // On click we should send event to close window.	  
+		  document.getElementById("updateBtn").addEventListener("click", function (e) {
+			ipcRenderer.send('reload_excel');
+		  });
+
+		   document.getElementById("my-button").addEventListener("click", function (e) {
+			ipcRenderer.send('quit-app');
+		  });
+
+	  </script>
+  	 <script>
+      // You can also require other files to run in this process
+      
+    </script>
+  </body>
+
+  </html>
+
+  
